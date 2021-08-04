@@ -50,3 +50,14 @@ function Paddle:update(dt)
         self.y = math.min(VIRTUAL_HEIGHT - self.height, self.y + self.dy * dt)
     end
 end
+
+--[[
+    To be called by our main function in `love.draw`, ideally. Uses
+    LÖVE2D's `rectangle` function, which takes in a draw mode as the first
+    argument as well as the position and dimensions for the rectangle. To
+    change the color, one must call `love.graphics.setColor`. As of the
+    newest version of LÖVE2D, you can even draw rounded rectangles!
+]]
+function Paddle:render()
+    love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+end
