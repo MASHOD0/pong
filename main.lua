@@ -239,34 +239,3 @@ end
     Keyboard handling, called by LÖVE2D each frame; 
     passes in the key we pressed so we can access.
 ]]
-function love.keypressed(key)
-
-    if key == 'escape' then
-        love.event.quit()
-    -- if we press enter during either the start or serve phase, it should
-    -- transition to the next appropriate state
-    elseif key == 'enter' or key == 'return' then
-        if gameState == 'start' then
-            gameState = 'serve'
-        elseif gameState == 'serve' then
-            gameState = 'play'
-        elseif gameState == 'done' then
-            -- game is simply in a restart phase here, but will set the serving
-            -- player to the opponent of whomever won for fairness!
-            gameState = 'serve'
-
-            ball:reset()
-
-            -- reset scores to 0
-            player1Score = 0
-            player2Score = 0
-
-            -- decide serving player as the opposite of who won
-            if winningPlayer == 1 then
-                servingPlayer = 2
-            else
-                servingPlayer = 1
-            end
-        end
-    end
-end
