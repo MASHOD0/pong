@@ -46,6 +46,7 @@ function Ball:collides(paddle)
     -- if the above aren't true, they're overlapping
     return true
 end
+
 --[[
     Places the ball in the middle of the screen, with an initial random velocity
     on both axes.
