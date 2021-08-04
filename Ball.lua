@@ -56,3 +56,11 @@ function Ball:reset()
     self.dy = math.random(2) == 1 and -100 or 100
     self.dx = math.random(-50, 50)
 end
+
+--[[
+    Simply applies velocity to position, scaled by deltaTime.
+]]
+function Ball:update(dt)
+    self.x = self.x + self.dx * dt
+    self.y = self.y + self.dy * dt
+end
