@@ -46,3 +46,13 @@ function Ball:collides(paddle)
     -- if the above aren't true, they're overlapping
     return true
 end
+--[[
+    Places the ball in the middle of the screen, with an initial random velocity
+    on both axes.
+]]
+function Ball:reset()
+    self.x = VIRTUAL_WIDTH / 2 - 2
+    self.y = VIRTUAL_HEIGHT / 2 - 2
+    self.dy = math.random(2) == 1 and -100 or 100
+    self.dx = math.random(-50, 50)
+end
